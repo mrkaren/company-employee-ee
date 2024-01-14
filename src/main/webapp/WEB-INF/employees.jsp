@@ -21,6 +21,7 @@ Employees | <a href="/addEmployee">Add Employee</a>
 <table border="1">
     <tr>
         <th>ID</th>
+        <th>Picture</th>
         <th>Name</th>
         <th>Surname</th>
         <th>Email</th>
@@ -32,6 +33,13 @@ Employees | <a href="/addEmployee">Add Employee</a>
         for (Employee employee : employees) { %>
     <tr>
         <td><%=employee.getId()%>
+        </td>
+        <td>
+            <% if (employee.getPicName() != null) { %>
+            <img src="/downloadImage?imageName=<%=employee.getPicName()%>" width="50">
+            <%} else {%>
+            <span>No Picture</span>
+            <%}%>
         </td>
         <td><%=employee.getName()%>
         </td>

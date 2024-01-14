@@ -30,7 +30,7 @@ public class CompanyManager {
         return companies;
     }
 
-    public Company  getCompanyById(int id) {
+    public Company getCompanyById(int id) {
         String sql = "SELECT * FROM company WHERE id = " + id;
 
         try (Statement statement = connection.createStatement()) {
@@ -75,5 +75,17 @@ public class CompanyManager {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void update(Company company) {
+        String sql = "UPDATE company SET name = ?, address = ? WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, company.getName());
+            preparedStatement.setString(2, company.getAddress());
+            preparedStatement.setInt(3, company.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

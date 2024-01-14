@@ -22,6 +22,7 @@ Companies | <a href="/addCompany" >Add Company</a>
         <th>Name</th>
         <th>Address</th>
         <th>Delete</th>
+        <th>Update</th>
     </tr>
     <%
         if (!companies.isEmpty()) {
@@ -31,6 +32,7 @@ Companies | <a href="/addCompany" >Add Company</a>
             <td><a href="/singleCompany?id=<%=company.getId()%>"> <%=company.getName()%></a></td>
             <td><%=company.getAddress()%></td>
             <td> <a href="/deleteCompany?id=<%=company.getId()%>">delete</a> </td>
+            <td> <a href="/updateCompany?id=<%=company.getId()%>">Update</a> </td>
         </tr>
     <% }
     }

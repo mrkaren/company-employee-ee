@@ -1,9 +1,7 @@
 package org.example.companyemployeeee.servlet;
 
 
-import org.example.companyemployeeee.manager.CompanyManager;
 import org.example.companyemployeeee.manager.EmployeeManager;
-import org.example.companyemployeeee.model.Company;
 import org.example.companyemployeeee.model.Employee;
 
 import javax.servlet.ServletException;
