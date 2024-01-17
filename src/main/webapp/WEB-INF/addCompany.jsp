@@ -15,7 +15,7 @@
 </head>
 <body>
 Add Company <br>
-<form method="post" action="/addCompany">
+<form method="post" action="/companies/add">
     Company Name: <input type="text" name="companyName"> <br>
     Company Address: <input type="text" name="companyAddress"><br>
     <input type="submit" value="add">

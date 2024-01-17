@@ -14,26 +14,35 @@
     List<Company> companies = (List<Company>) request.getAttribute("companies");
 %>
 
-Companies | <a href="/addCompany" >Add Company</a>
+Companies | <a href="/companies/add">Add Company</a>
 
 <table>
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Address</th>
+        <th>User added</th>
         <th>Delete</th>
         <th>Update</th>
     </tr>
     <%
         if (!companies.isEmpty()) {
             for (Company company : companies) { %>
-        <tr>
-            <td><%=company.getId()%></td>
-            <td><a href="/singleCompany?id=<%=company.getId()%>"> <%=company.getName()%></a></td>
-            <td><%=company.getAddress()%></td>
-            <td> <a href="/deleteCompany?id=<%=company.getId()%>">delete</a> </td>
-            <td> <a href="/updateCompany?id=<%=company.getId()%>">Update</a> </td>
-        </tr>
+    <tr>
+        <td><%=company.getId()%>
+        </td>
+        <td><a href="/singleCompany?id=<%=company.getId()%>"><%=company.getName()%>
+        </a></td>
+        <td><%=company.getAddress()%>
+        </td>
+        <td>
+            <% if (company.getUser() != null) { %>
+            <%=company.getUser().getName() + " " + company.getUser().getSurname()%>
+            <%}%>
+        </td>
+        <td><a href="/deleteCompany?id=<%=company.getId()%>">delete</a></td>
+        <td><a href="/updateCompany?id=<%=company.getId()%>">Update</a></td>
+    </tr>
     <% }
     }
     %>
