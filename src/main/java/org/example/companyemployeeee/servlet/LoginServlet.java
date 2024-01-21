@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
     private UserManager userManager = new UserManager();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         User userByEmail = userManager.getUserByEmail(email);
@@ -28,4 +28,5 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect("/");
         }
     }
+
 }

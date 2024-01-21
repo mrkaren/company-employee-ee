@@ -18,6 +18,7 @@ public class AddCompanyServlet extends HttpServlet {
 
     private CompanyManager companyManager = new CompanyManager();
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

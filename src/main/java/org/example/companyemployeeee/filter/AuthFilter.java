@@ -19,6 +19,11 @@ import java.io.IOException;
 public class AuthFilter implements Filter {
 
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println("AuthFilter created!");
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpSession session = request.getSession();
@@ -33,4 +38,9 @@ public class AuthFilter implements Filter {
 
     }
 
+    @Override
+    public void destroy() {
+        System.out.println("AuthFilter destroyed!");
+
+    }
 }
